@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width" />
+  <title>Doum : 생활기록부 도서 추천</title>
+  <script src="https://kit.fontawesome.com/7f27a162c1.js" crossorigin="anonymous"></script>
+</head>
+<style>
+  body,p{
+    margin: 0;
+  }
+  body{
+    background-color: #EFF1F3;
+    font-family: 'GmarketSansLight';
+  }
+  @font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /*
+  a:link, a:visited, a:active{
+    color : #ffffff;
+    text-decoration: none;
+  }
+  a:hover{
+    color: #ff0000;
+    text-decoration: underline;
+  }
+  */
+</style>
+<style>
+  #main{
+    width: 100vw;
+    height: 100vh;
+
+    margin: auto;
+  }
+  .header{
+    text-align: center;
+    font-family: 'GmarketSansBold';
+    font-size: 25px;
+
+    position: relative;
+    top: 30px;
+
+    cursor: pointer;
+  }
+  .main{
+    width: 45vw;
+    height: 88%;
+
+    position: relative;
+    top: 70px;
+    left: calc(50% - 22.5vw);
+  }
+  .question{
+    margin-bottom: 3vh;
+
+    font-size: 25px;
+    font-family: 'GmarketSansBold';
+  }
+  .book{
+    width: 45vw;
+    height: auto;
+
+    margin-bottom: 3vw;
+    
+    border-radius: 30px;
+    box-shadow: 7px 7px 30px #b0b0b3c0, -7px -7px 30px #ffffff;
+  }
+  .info{
+    width: 39vw;
+    height: auto;
+
+    padding: 1.5vw 3vw;
+
+    position: relative;
+    left: calc(50% - 22.5vw);
+  }
+  .image{
+    height: 10.5vw;
+
+    margin-right: 0.5vw;
+
+    border-radius: 15px;
+  }
+  .about{
+    width: 31vw;
+
+    font-size: 20px;
+    line-height: 180%;
+
+    vertical-align: 1vw;
+  }
+  .title{
+    width: 33vw;
+
+    font-family: 'GmarketSansMedium';
+    font-size: 25px;
+    
+    word-break: keep-all;
+  }
+  .plot{
+    margin-top: 1vw;
+
+    font-size: 20px;
+
+    line-height: 220%;
+
+    word-break: keep-all;
+  }
+  .like{
+    width: 45vw;
+    height: 15vw;
+
+    margin-top: 4vw;
+
+    text-align: center;
+  }
+  .dulike{
+    font-family: 'GmarketSansBold';
+    font-size: 25px;
+  }
+  .circle_1, .circle_2{
+    width: 6vw;
+    height: 6vw;
+    margin: 1vw 2vw;
+
+    box-shadow: 7px 7px 30px #b0b0b3c0, -7px -7px 30px #ffffff;
+    border-radius: 100px;
+  }
+  .circle_1>i{
+    position: relative;
+    top: 2.5vw;
+  }
+  .circle_2>i{
+    position: relative;
+    top: 2.6vw;
+  }
+  .atc{
+    width: 100%;
+    height: 4vw;
+
+    font-size: 13px;
+    text-align: center;
+  }
+</style>
+<style> /* media */
+  @media(max-width: 500px){
+    .main{
+      width: 100vw;
+      height: auto;
+
+      position: relative;
+      top: 70px;
+      left: calc(50% - 50vw);
+    }
+    .header{
+      font-size: 140%;
+    }
+    .question{
+      margin-left: 10vw;
+      font-size: 120%;
+    }
+    .book{
+      width: 80vw;
+      height: auto;
+
+      margin-bottom: 7vw;
+
+      position: relative;
+      left: calc(50% - 40vw);
+
+      border-radius: 25px;
+    }
+    .info{
+      width: 72vw;
+      height: auto;
+
+      padding: 2.5vw 4vw;
+
+      position: relative;
+      left: calc(50% - 40vw);
+    }
+    .image{
+      height: 25vw;
+
+      border-radius: 5px;
+    }
+    .about{
+      font-size: 10px;
+
+      vertical-align: 3vw;
+    }
+    .title{
+      font-size: 12px;
+    }
+    .plot{
+      font-size: 13px;
+    }
+    .like{
+      width: 80vw;
+      height: 20vw;
+
+      position: relative;
+      left: calc(50% - 40vw);
+    }
+    .circle_1, .circle_2{
+      width: 17vw;
+      height: 17vw;
+      margin: 5vw 3vw;
+
+      box-shadow: 7px 7px 30px #b0b0b3c0, -7px -7px 30px #ffffff;
+      border-radius: 100px;
+    }
+    .circle_1>i{
+      position: relative;
+      top: 6.5vw;
+    }
+    .circle_2>i{
+      position: relative;
+      top: 6.5vw;
+    }
+    .dulike{
+      font-size: 15px;
+    }
+    .atc{
+      height: 5vw;
+    }
+    .by{
+      margin-top: 20vw;
+      font-size: 2vw;
+    }
+  }
+</style>
+<body style="overflow-x: hidden; overflow-y: auto;">
+  <div id="main" style="float: left;">
+    <p class="header" onclick="location.href='/'">Doum</p>
+    <div class="main">
+      <p class="question">도서 추천 결과</p>
+      <div class="book">
+        <div class="info">
+          <img class="image" src="http://image.kyobobook.co.kr/images/book/xlarge/125/x9791195522125.jpg" alt="book">
+          <div class="about" style="display: inline-block;">
+            <p class="title">제목</p>
+            <p class="ap">저자 / 출판사</p>
+            <p class="subject">관련 과목 : 과목</p>
+            <p class="points">평점  : n.0 / 5.0</p>
+          </div>
+          <p class="plot">
+            책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용
+            책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용
+            책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용
+            책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용
+            책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용
+            책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용 책 내용
+          </p>
+        </div>
+      </div>
+      <div class="like">
+        <p class="dulike">도서 추천 결과에 만족하시나요?</p>
+        <div class="circle_1" style="display: inline-block;">
+          <i class="fa-solid fa-thumbs-up fa-xl"></i>
+        </div>
+        <div class="circle_2" style="display: inline-block;">
+          <i class="fa-solid fa-thumbs-down fa-xl"></i>
+        </div>
+      </div>
+      <div class="atc">
+        <p class="by">Made by. Team COS (공나현, 김다솔, 이수연, 홍지우)</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
