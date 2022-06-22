@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width" />
+  <title>Doum : 생활기록부 도서 추천</title>
+</head>
+<style>
+  body,p{
+    margin: 0;
+  }
+  body{
+    background-color: #EFF1F3;
+    font-family: 'GmarketSansLight';
+  }
+  @font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+</style>
+<style>
+  #main{
+    width: 100vw;
+    height: 100vh;
+
+    margin: auto;
+  }
+  .header{
+    text-align: center;
+    font-family: 'GmarketSansBold';
+    font-size: 25px;
+
+    position: relative;
+    top: 30px;
+
+    cursor: pointer;
+  }
+  .main{
+    width: 45vw;
+    height: 85vh;
+
+    position: relative;
+    top: 70px;
+    left: calc(50% - 22.5vw);
+  }
+  .question{
+    margin-bottom: 3vh;
+
+    font-size: 25px;
+    font-family: 'GmarketSansBold';
+  }
+  .choice{
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+
+    font-size: 25px;
+    line-height: 200%;
+
+    word-break: keep-all;
+  }
+  .choice_e{
+    line-height: 220%;
+  }
+  label{
+    cursor: pointer;
+  }
+  .atc{
+    width: 100%;
+    height: 15vw;
+
+    padding-top: 5vw;
+
+    text-align: center;
+  }
+  .next{
+    width: 270px;
+    height: 60px;
+
+    color: white;
+    font-size: 20px;
+    background-color: black;
+
+    border-radius: 10px;
+
+    position: relative;
+    left: calc(50% - 35px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+  }
+  .by{
+    text-align: center;
+    font-size: 3px;
+
+    margin-top: 3vw;
+
+    cursor: pointer;
+  }
+</style>
+<style> /* media */
+  @media(max-width: 500px){
+    .main{
+      width: 100vw;
+      height: auto;
+
+      position: relative;
+      top: 70px;
+      left: calc(50% - 50vw);
+    }
+    .header{
+      font-size: 140%;
+    }
+    .question{
+      margin-left: 10vw;
+      font-size: 20%;
+    }
+    .choice{
+      margin-top: 9vw;
+      margin-left: 10vw;
+      margin-bottom: 30vw;
+      line-height: 200%;
+
+      font-size: 20%;
+    }
+    .atc{
+      height: 25vw;
+    }
+    .next{
+      width: 60vw;
+      height: 3vw;
+
+      font-size: 100%;
+
+      position: relative;
+      left: calc(50% - 30vw);
+    }
+    .by{
+      margin-top: 6vw;
+      font-size: 2vw;
+    }
+  }
+</style>
+<body style="overflow-x: hidden; overflow-y: auto;">
+  <div id="main" style="float: left;">
+    <p class="header" onclick="location.href='/'">Doum</p>
+    <div class="main">
+      <p class="question">세부 학과를 선택해주세요.</p>
+      <div class="choice">
+        <!-- 공학계열 -->
+        {% if department == '1' %}
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 건축학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> IT융합학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 미디어출판과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 물류시스템공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 항해학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 해양공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 해양시스템학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 건설정보과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 건축공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 건축과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 건축설비과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 게임공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 게임콘텐츠과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 고분자공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 공업화학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 광학공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 교양공학부</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 교통공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 국방기술과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 국방기술학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 금속공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 금형설계과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 기계공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 기계과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 기계설계공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 기계설계과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 나노공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 냉동공조공학과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 도시건설과</label>
+        <br>
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 도시공학과</label>
+        {% endif %}
+        <!-- 의약계열 -->
+        {% if department == '2' %}
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 수의학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 작업치료학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 간호학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 예술치료학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 간호과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 물리치료과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 물리치료학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 방사선과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 방사선학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 보건관리학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 보건행정과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 보건환경과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 산업안전과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 소방안전관리과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 약학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 언어재활과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 예술치료과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 응급구조과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 응급구조학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 의료보장구과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 의료정보공학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 의료정보시스템과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 의무행정과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 의예과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 의용공학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 임상병리과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 임상병리학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 작업치료과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 재활학과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 치기공과</label>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 치기공학과</label>
+        {% endif %}
+        <!-- 자연과학계열 -->
+        {% if department == '3' %}
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 교양자연과학부</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 교양생활과학부</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 외식조리과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 농공학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 농수산과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 대기과학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 동물자원학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 말특수동물학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 물리학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 미생물학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 바이오동물학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 바이오생명정보과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 산림자원학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 생명공학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 생명과학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 생물산업기계공학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 생물학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 생화학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 생활문화과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 수산학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 수학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 식량자원학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 식품가공과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 식품공학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 식품영양과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 식품영양학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 식품자원경제학과</label>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 식품조리과</label>
+        {% endif %}
+      </div>
+      <div class="atc">
+        <p class="next" onclick="goNext()" style="cursor:pointer;">다음 페이지로 이동</p>
+        <p class="by">Made by. Team COS (공나현, 김다솔, 이수연, 홍지우)</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    var selSubject = '';	
+    function oneCheckbox(a){	
+    var obj = document.getElementsByName("department");	
+    for(var i=0; i<obj.length; i++){	
+    if(obj[i] != a){	
+    obj[i].checked = false;	
+        }	
+      }	
+      selSubject = a.value	
+    }
+    function goNext(){	
+      if (!selSubject) {	
+        alert('희망 학과 계열을 선택해주세요.');	
+      } else {	
+        window.location = '/page5/' + selSubject; 
+      }	
+    }	
+  </script>
+</body>
+</html>

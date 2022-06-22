@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width" />
+  <title>Doum : 생활기록부 도서 추천</title>
+  <link rel="stylesheet" type="text/css" href ="1-01.css">
+</head>
+<style>
+  body,p{
+    margin: 0;
+  }
+  body{
+    background-color: #EFF1F3;
+    font-family: 'GmarketSansLight';
+  }
+  @font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+</style>
+<style>
+  #main{
+    width: 100vw;
+    height: 100vh;
+
+    margin: auto;
+  }
+  .header{
+    text-align: center;
+    font-family: 'GmarketSansBold';
+    font-size: 25px;
+
+    position: relative;
+    top: 30px;
+
+    cursor: pointer;
+  }
+  .main{
+    width: 45vw;
+    height: 85vh;
+
+    position: relative;
+    top: 70px;
+    left: calc(50% - 22.5vw);
+  }
+  .question{
+    margin-bottom: 3vh;
+
+    font-size: 25px;
+    font-family: 'GmarketSansBold';
+  }
+  .choice{
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+
+    font-size: 25px;
+    line-height: 100%;
+
+    word-break: keep-all;
+  }
+  .choice_p{
+    line-height: 220%;
+  }
+  .choice_m{
+    line-height: 220%;
+
+    display: none;
+  }
+  label{
+    cursor: pointer;
+  }
+  .atc{
+    width: 100%;
+    height: 15vw;
+
+    padding-top: 5vw;
+
+    text-align: center;
+  }
+  .next{
+    width: 270px;
+    height: 60px;
+
+    color: white;
+    font-size: 20px;
+    background-color: black;
+
+    border-radius: 10px;
+
+    position: relative;
+    left: calc(50% - 135px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+  }
+  .by{
+    text-align: center;
+    font-size: 13px;
+
+    margin-top: 3vw;
+
+    cursor: pointer;
+  }
+</style>
+<style> /* media */
+  @media(max-width: 500px){
+    .main{
+      width: 100vw;
+      height: auto;
+
+      position: relative;
+      top: 70px;
+      left: calc(50% - 50vw);
+    }
+    .header{
+      font-size: 140%;
+    }
+    .question{
+      margin-left: 10vw;
+      font-size: 120%;
+    }
+    .choice{
+      margin-top: 9vw;
+      margin-left: 10vw;
+      margin-bottom: 30vw;
+      line-height: 120%;
+
+      font-size: 120%;
+    }
+    .choice_p{
+      display: none;
+    }
+    .choice_m{
+      display: block;
+    }
+    .atc{
+      height: 25vw;
+    }
+    .next{
+      width: 60vw;
+      height: 13vw;
+
+      font-size: 100%;
+
+      position: relative;
+      left: calc(50% - 30vw);
+    }
+    .by{
+      margin-top: 6vw;
+      font-size: 2vw;
+    }
+  }
+</style>
+<body style="overflow-x:hidden; overflow-y:auto;">
+  <div id="main" style="float: left;">
+    <p class="header" onclick="location.href='/'">Doum</p>
+    <div class="main">
+      <p class="question">세부 학과 계열을 선택해주세요.</p>
+      <div class="choice">
+        {% if department == '1' %}
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 기초과학</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">수학과, 통계학과, 생명과학과, 화학과, 물리학과, 천문학과,<br>지구환경과학과(해양학과/지질학과/대기과학과)</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">수학과, 통계학과, 생명과학과, 화학과, 물리학과, <br>지구환경과학과(해양/지질/대기과학) 등</p>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 농림수산</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">[농림] 식물자원학과, 농생물학과, 산림과학과<br>[축산] 동물자원학과, 특수동물학과, 애완동물과<br>[수산] 수산자원학과, 수산생명의학과</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">[농림] 식물자원학과, 농생물학과, 산림과학과<br>[축산] 동물자원학과, 특수동물학과, 애완동물과<br>[수산] 수산자원학과, 수산생명의학과</p>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 생활과학</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">의류의상학과, 식품영양학과, 조리과학과, 주거환경학과</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">의류의상학과, 식품영양학과, 조리과학과 등</p>
+        {% endif %}
+        {% if department == '2' %}
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 의학</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">수의학과, 의학과, 치의학과, 한의학과</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">수의학과, 의학과, 치의학과, 한의학과</p>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 약학</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">약학과, 한약학과</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">약학과, 한약학과</p>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 간호</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">간호학과</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">간호학과</p>
+        <br>
+        <input type="checkbox" id="uni_04" name="department" value="4" onclick="oneCheckbox(this)"><label for="uni_04"> 보건</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">[재활치료] 물리치료학과, 작업치료학과, 재활학과, 언어치료학과<br>[임상보건] 안경광학과, 방사선학과, 응급구조학과, 임상병리학과, 치위생학과, 치기공학과<br>[보건관리] 보건행정학과, 건강관리학과</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">[재활치료] 물리치료학과, 재활학과 등<br>[임상보건] 안경광학과, 방사선학과 등<br>[보건관리] 보건행정학과, 건강관리학과</p>
+        {% endif %}
+        {% if department == '3' %}
+        <input type="checkbox" id="uni_01" name="department" value="1" onclick="oneCheckbox(this)"><label for="uni_01"> 전기</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">전기전자공학과, 반도체학과, 광공학과, 정보보안학과, 컴퓨터공학과, 정보통신공학과 등</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">전기전자공학과, 반도체학과, 정보보안학과,<br>컴퓨터공학과, 정보통신공학과, 국방기술학과</p>
+        <br>
+        <input type="checkbox" id="uni_02" name="department" value="2" onclick="oneCheckbox(this)"><label for="uni_02"> 화학</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">화학공학과, 재료공학과, 고분자공학과, 섬유공학과, 생명공학과, 식품공학과, 나노공학과 등</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">화학공학과, 재료공학과, 섬유공학과, 생명공학과,<br>식품공학과, 고분자공학과, 나노공학과, 에너지공학과</p>
+        <br>
+        <input type="checkbox" id="uni_03" name="department" value="3" onclick="oneCheckbox(this)"><label for="uni_03"> 기계</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">기계공학과, 자동차공학과, 조선해양공학과, 항공우주공학과, 기전공학과, 특수장비과 등</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">기계공학과, 자동차공학과, 조선해양공학과 등</p>
+        <br>
+        <input type="checkbox" id="uni_04" name="department" value="4" onclick="oneCheckbox(this)"><label for="uni_04"> 토목</label>
+        <p class="choice_p" style="margin-left: 25px; font-size: 60%">토목공학과, 건축학과, 건축공학과, 교통공학과, 농공학과, 조경학과, 환경공학과 등</p>
+        <p class="choice_m" style="margin-left: 27px; font-size: 60%">토목공학과, 건축학과, 조경학과, 환경공학과,<br>철도공학과, 산업공학과, 소방학과, 원자력공학과 등</p>
+        {% endif %}
+        <script>
+          var selSubject = '';	
+          function oneCheckbox(a){	
+          var obj = document.getElementsByName("subject");	
+          for(var i=0; i<obj.length; i++){	
+          if(obj[i] != a){	
+          obj[i].checked = false;	
+              }	
+            }	
+            selSubject = a.value	
+          }
+          function goNext(){	
+            if (!selSubject) {	
+              alert('세부 학과 계열을 선택해주세요.');	
+            } else {	
+              window.location = '/page4/{{department}}/' + selSubject;	
+            }	
+          }	
+        </script>
+        <!--
+          <script>
+          function move(page){
+            
+            window.document.location.href=page;
+            return;
+          }
+          function check(x){
+            if(x.checked==true){
+              move('0x.html')
+            }
+          }
+        </script>
+        -->
+      </div>
+      <div class="atc">
+        <p class="next" onclick="goNext()" style="cursor:pointer;">다음 페이지로 이동</p>
+        <p class="by">Made by. Team COS (공나현, 김다솔, 이수연, 홍지우)</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

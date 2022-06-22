@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width" />
+  <title>Doum : 생활기록부 도서 추천</title>
+</head>
+<style>
+  body,p{
+    margin: 0;
+  }
+  body{
+    background-color: #EFF1F3;
+    font-family: 'GmarketSansLight';
+  }
+  @font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+</style>
+<style>
+  #main{
+    width: 100vw;
+    height: 100vh;
+
+    margin: auto;
+  }
+  .header{
+    text-align: center;
+    font-family: 'GmarketSansBold';
+    font-size: 25px;
+
+    position: relative;
+    top: 30px;
+
+    cursor: pointer;
+  }
+  .main{
+    width: 60vw;
+    height: 75vh;
+
+    position: relative;
+    top: 70px;
+    left: calc(50% - 30vw);
+  }
+  .question{
+    margin: 10vh 8vw;
+    margin-bottom: 9.1vw;
+
+    font-size: 30px;
+
+    line-height: 220%;
+  }
+  span{
+    font-family: 'GmarketSansBold';
+  }
+  .atc{
+    width: 100%;
+    height: 15vw;
+
+    padding-top: 5vw;
+
+    text-align: center;
+  }
+  .start{
+    width: 270px;
+    height: 60px;
+
+    color: white;
+    font-size: 20px;
+    background-color: black;
+
+    border-radius: 10px;
+
+    position: relative;
+    left: calc(50% - 135px);
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+  }
+  .by{
+    text-align: center;
+    font-size: 13px;
+
+    margin-top: 3vw;
+
+    cursor: pointer;
+  }
+</style>
+<style> /* media */
+  @media(max-width: 500px){
+    .main{
+      width: 100vw;
+      height: auto;
+
+      position: relative;
+      top: 70px;
+      left: calc(50% - 50vw);
+    }
+    .header{
+      font-size: 140%;
+    }
+    .question{
+      margin-left: 20vw;
+      margin-bottom: 48.4vw;
+      font-size: 140%;
+    }
+    .atc{
+      height: 25vw;
+    }
+    .start{
+      width: 60vw;
+      height: 13vw;
+
+      font-size: 100%;
+
+      position: relative;
+      left: calc(50% - 30vw);
+    }
+    .by{
+      margin-top: 6vw;
+      font-size: 2vw;
+    }
+  }
+</style>
+<body>
+  <div id="main" style="float: left;">
+    <p class="header" onclick="location.href='/'">Doum</p>
+    <div class="main">
+      <p class="question">간단한 질문을 통해<br>생활기록부에 기재할<br><span>과학 도서</span>를<br>추천해드립니다</p>
+      <div class="atc">
+        <p class="start" onclick="location.href='/page2/'">시작하기</p>
+        <p class="by">Made by. Team COS (공나현, 김다솔, 이수연, 홍지우)</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width" />
+  <title>Doum : 생활기록부 도서 추천</title>
+</head>
+<style>
+  body,p{
+    margin: 0;
+  }
+  body{
+    background-color: #EFF1F3;
+    font-family: 'GmarketSansLight';
+  }
+  @font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+</style>
+<style>
+  #main{
+    width: 100vw;
+    height: 100vh;
+
+    margin: auto;
+  }
+  .header{
+    text-align: center;
+    font-family: 'GmarketSansBold';
+    font-size: 25px;
+
+    position: relative;
+    top: 30px;
+
+    cursor: pointer;
+  }
+  .main{
+    width: 45vw;
+    height: auto;
+
+    position: relative;
+    top: 70px;
+    left: calc(50% - 22.5vw);
+  }
+  .question{
+    margin-bottom: 3vh;
+
+    font-size: 25px;
+    font-family: 'GmarketSansBold';
+  }
+  .book{
+    width: 45vw;
+    height: 12.5vw;
+
+    margin-bottom: 3vw;
+    
+    border-radius: 30px;
+    box-shadow: 7px 7px 30px #b0b0b3c0, -7px -7px 30px #ffffff;
+  }
+  .info{
+    width: 42vw;
+    height: 11vw;
+
+    padding: 1vw 3vw;
+
+    position: relative;
+    left: calc(50% - 24vw);
+  }
+  .image{
+    height: 10.5vw;
+
+    margin-right: 0.5vw;
+
+    border-radius: 15px;
+  }
+  .about{
+    font-size: 15px;
+    line-height: 180%;
+
+    vertical-align: 3vw;
+  }
+  .title{
+    width: 33vw;
+
+    font-family: 'GmarketSansMedium';
+    font-size: 23px;
+    
+    word-break: keep-all;
+  }
+  .atc{
+    width: 100%;
+    height: 4vw;
+
+    font-size: 13px;
+    text-align: center;
+  }
+</style>
+<style> /* media */
+  @media(max-width: 500px){
+    .main{
+      width: 100vw;
+      height: auto;
+
+      position: relative;
+      top: 70px;
+      left: calc(50% - 50vw);
+    }
+    .header{
+      font-size: 140%;
+    }
+    .question{
+      margin-left: 10vw;
+      font-size: 120%;
+    }
+    .book{
+      width: 80vw;
+      height: 30vw;
+
+      margin-bottom: 5vw;
+
+      position: relative;
+      left: calc(50% - 40vw);
+
+      border-radius: 25px;
+    }
+    .info{
+      width: 72vw;
+      height: 25vw;
+
+      padding: 2.5vw 4vw;
+
+      position: relative;
+      left: calc(50% - 40vw);
+    }
+    .image{
+      height: 25vw;
+
+      border-radius: 5px;
+    }
+    .about{
+      font-size: 10px;
+    }
+    .title{
+      font-size: 12px;
+    }
+    .by{
+      margin-top: 9vw;
+      font-size: 2vw;
+    }
+  }
+</style>
+<body style="overflow-x: hidden; overflow-y: auto;">
+  <div id="main" style="float: left;">
+    <p class="header" onclick="location.href='/'">Doum</p>
+    <div class="main">
+      <p class="question">원하는 도서를 선택해주세요.</p>
+      <div class="books">
+        <div class="book" onclick="location.href='/page6/{{department}}/{{subject}}/b1'">
+          <div class="info">
+            <img class="image" src="http://image.kyobobook.co.kr/images/book/xlarge/125/x9791195522125.jpg" alt="book">
+            <div class="about" style="display: inline-block;">
+              <p class="title">제목</p>
+              <p class="ap">저자 / 출판사</p>
+              <p class="subject">관련 과목 : 과목</p>
+              <p class="points">평점  : n.0 / 5.0</p>
+            </div>
+          </div>
+        </div>
+        <div class="book" onclick="location.href='/page6/{{department}}/{{subject}}/b2'">
+          <div class="info">
+            <img class="image" src="http://image.kyobobook.co.kr/images/book/xlarge/125/x9791195522125.jpg" alt="book">
+            <div class="about" style="display: inline-block;">
+              <p class="title">제목</p>
+              <p class="ap">저자 / 출판사</p>
+              <p class="subject">관련 과목 : 과목</p>
+              <p class="points">평점  : n.0 / 5.0</p>
+            </div>
+          </div>
+        </div>
+        <div class="book" onclick="location.href='/page6/{{department}}/{{subject}}/b3'">
+          <div class="info">
+            <img class="image" src="http://image.kyobobook.co.kr/images/book/xlarge/125/x9791195522125.jpg" alt="book">
+            <div class="about" style="display: inline-block;">
+              <p class="title">제목</p>
+              <p class="ap">저자 / 출판사</p>
+              <p class="subject">관련 과목 : 과목</p>
+              <p class="points">평점  : n.0 / 5.0</p>
+            </div>
+          </div>
+        </div>
+        <div class="book" onclick="location.href='/page6/{{department}}/{{subject}}/b4'">
+          <div class="info">
+            <img class="image" src="http://image.kyobobook.co.kr/images/book/xlarge/125/x9791195522125.jpg" alt="book">
+            <div class="about" style="display: inline-block;">
+              <p class="title">제목</p>
+              <p class="ap">저자 / 출판사</p>
+              <p class="subject">관련 과목 : 과목</p>
+              <p class="points">평점  : n.0 / 5.0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="atc">
+        <p class="by">Made by. Team COS (공나현, 김다솔, 이수연, 홍지우)</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
